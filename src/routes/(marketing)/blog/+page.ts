@@ -1,8 +1,8 @@
 import type { PageLoad } from './$types';
 
-export const load = (async () => {
-    return {
-        title: "The Blog",
-        count: 10
-    };
+export const load = (async ({ data }) => {
+	return {
+		...data,
+		x: 1
+	};
 }) satisfies PageLoad;
