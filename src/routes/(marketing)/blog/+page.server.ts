@@ -13,6 +13,7 @@ export const load = (async ({parent}) => {
 
 	return {
 		title: 'The Blog',
+		description: 'Our blog posts',
 		count: 10
 	};
 }) satisfies PageServerLoad;
