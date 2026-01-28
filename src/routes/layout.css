@@ -2,3 +2,9 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 @plugin 'daisyui';
+
+@custom-variant no-js {
+	&:where(html.no-js *) {
+		@slot;
+	}
+}
