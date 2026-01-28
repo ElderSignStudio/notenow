@@ -13,6 +13,7 @@ export const load = (async ({fetch}) => {
 	return {
 		title: 'The Blog',
 		description: 'Our blog posts',
-		posts: (await postsRes.json()) as PostsResponse
+		posts: (await postsRes.json()) as PostsResponse,
+		postType: Math.random() > 0.5 ? 1 : 2
 	};
 }) satisfies PageServerLoad;
