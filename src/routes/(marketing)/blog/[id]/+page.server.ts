@@ -21,10 +21,8 @@ export const load = (async ({params, fetch}) => {
         return commentsArray;
     }
 
-    const [post, comments] = await Promise.all([fetchPost(), fetchComments()]);
-
     return {
-        post,
-        comments
+        comments: fetchComments(),
+        post: await fetchPost()
     };
 });
