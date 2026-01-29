@@ -20,9 +20,14 @@ export const load = (async ({params, fetch}) => {
         const commentsArray: PostComment[] = postCommentsRes.ok ? (await postCommentsRes.json()).comments : [];
         return commentsArray;
     }
+    
+    const commentsPromise = fetchComments();
+    const post = await fetchPost(); 
 
     return {
-        comments: fetchComments(),
-        post: await fetchPost()
+        comments: commentsPromise,
+        post,
+        title: post.title,
+        description: post.body.slice(0, 200)
     };
 });
