@@ -1,4 +1,4 @@
-import { type Handle } from "@sveltejs/kit";
+import { type Handle, type HandleServerError } from "@sveltejs/kit";
 import { sequence } from "@sveltejs/kit/hooks";
 
 export const handle1: Handle = async ({event, resolve}) => {
@@ -15,3 +15,11 @@ export const handle1: Handle = async ({event, resolve}) => {
 };
 
 export const handle = sequence(handle1);
+
+export const handleError: HandleServerError = async ({error, event, status, message}) => {
+    console.log(error, event, status, message);
+    return {
+        message: 'An Unexpected Error Occured.',
+        code: 'UNEXPECTED'
+    };
+};
