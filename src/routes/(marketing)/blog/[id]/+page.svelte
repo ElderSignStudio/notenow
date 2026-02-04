@@ -1,7 +1,21 @@
 <script lang="ts">
+	import { invalidate, invalidateAll } from '$app/navigation';
+	import { page } from '$app/state';
 	import type { PageProps } from './$types';
 	let { data }: PageProps = $props();
 </script>
+
+<button
+	onclick={() => {
+		// invalidateAll(); // Invalidade all loads
+		// invalidate(`https://dummyjson.com/posts/${page.params.id}`); // Only works for universal load that depends on this specific url
+
+		invalidate((url) => {
+			return url.hostname === 'dummyjson.com' && url.pathname.startsWith('/posts');
+		}); // Reloads if the url matches the conditions: more flexible (also only for universal load functions)
+	}}
+	class="btn mb-6 rounded-md bg-orange-600 text-white">Reload</button
+>
 
 <div class="card bg-base-200 rounded-md p-10">
 	<div class="mb-16">
