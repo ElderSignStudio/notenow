@@ -5,20 +5,6 @@
 	let { data }: PageProps = $props();
 </script>
 
-<button
-	onclick={() => {
-		// invalidateAll(); // Invalidade all loads
-		// invalidate(`https://dummyjson.com/posts/${page.params.id}`); // Only works for universal load that depends on this specific url
-
-		invalidate((url) => {
-			return url.hostname === 'dummyjson.com' && url.pathname.startsWith('/posts');
-		}); // Reloads if the url matches the conditions: more flexible (also only for universal load functions)
-
-		invalidate('blog:single_page_layout'); // Invalidades all load functions that depend on this string (works on server load)
-	}}
-	class="btn mb-6 rounded-md bg-orange-600 text-white">Reload</button
->
-
 <div class="card bg-base-200 rounded-md p-10">
 	<div class="mb-16">
 		<h1 class=" mb-10 text-5xl font-bold">{data.post.title}</h1>

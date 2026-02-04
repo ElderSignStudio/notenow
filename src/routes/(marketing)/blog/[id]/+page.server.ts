@@ -2,8 +2,10 @@ import { error } from '@sveltejs/kit';
 // import type { PageLoad } from './$types';
 import type { Post, PostComment } from '$lib/types';
 
-export const load = (async ({params, fetch}) => {
+export const load = (async ({params, fetch, depends}) => {
 
+    depends('blog:single_page');
+    
     async function fetchPost() {
         const postRes = await fetch(`https://dummyjson.com/posts/${params.id}`);
 
