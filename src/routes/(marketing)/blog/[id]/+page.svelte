@@ -13,6 +13,8 @@
 		invalidate((url) => {
 			return url.hostname === 'dummyjson.com' && url.pathname.startsWith('/posts');
 		}); // Reloads if the url matches the conditions: more flexible (also only for universal load functions)
+
+		invalidate('blog:single_page_layout'); // Invalidades all load functions that depend on this string (works on server load)
 	}}
 	class="btn mb-6 rounded-md bg-orange-600 text-white">Reload</button
 >
