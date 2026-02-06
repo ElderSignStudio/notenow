@@ -2,7 +2,6 @@
 	import { page } from '$app/state';
 	import { POSTS_PER_PAGE } from '$lib/constants.js';
 	import type { PostsResponse } from '$lib/types.js';
-
 	// import type { PageProps } from './$types';
 
 	let { data } = $props();
