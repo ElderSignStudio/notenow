@@ -11,3 +11,9 @@
 .bprogress .bar {
 	background: var(--color-orange-600);
 }
+
+@layer dropdown-menu {
+	.dropdown-menu {
+		@apply z-1 mt-4 ml-0 min-w-52 rounded-md border-1 border-base-300 bg-base-200 p-2 shadow-md transition-none!;
+	}
+}
