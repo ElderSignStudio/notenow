@@ -32,7 +32,7 @@
 							id="popover-1"
 							style="position-anchor:--anchor-1"
 						>
-							{#each data.worksapces || [] as workspace}
+							{#each data.workspaces || [] as workspace}
 								<li>
 									<a href="/w/{workspace.id}" class="rounded-md">
 										<div class="avatar avatar-placeholder">

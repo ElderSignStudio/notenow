@@ -61,14 +61,14 @@ export const load = (async ({ locals }) => {
 			.orderBy(desc(notes.createdAt))
 			.limit(3);
 
-		const [worksapces, recentPages, recentNotes] = await Promise.all([
+		const [workspaces, recentPages, recentNotes] = await Promise.all([
 			workspacesPromise,
 			recentPagesPromise,
 			recentNotesPromise
 		]);
 		return {
 			user: locals.session.user,
-			worksapces,
+			workspaces,
 			recentPages,
 			recentNotes
 		};
